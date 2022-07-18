@@ -1,0 +1,256 @@
+<FlatButton@ButtonBehavior+Label>:
+    font_size: 14
+
+<OperatorWindow>:
+    id: main_win
+    orientation: 'vertical'
+    canvas.before:
+        Color:
+            rgba: (1,1,1, 1)
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+    BoxLayout:
+        id: header
+        size_hint_y: None
+        height: 40
+        canvas.before:
+            Color:
+                rgba: (.30,.30,.30,1)
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        Label:
+            text: 'Registro de Pedidos'
+            size_hint_x: .9
+            bold: True
+            color: (1,1,1,1)
+        FlatButton:
+            id: loggedin_user
+            text: 'Martin'
+            color: (1,1,1,1)
+
+    BoxLayout:
+        padding: 10
+        spacing: 5
+        BoxLayout:
+            id: charge_entry
+            orientation: "vertical"
+            size_hint_x: .5
+            spacing: 10
+
+            BoxLayout:
+                id: charge_labels
+                size_hint_y: None
+                height: 40
+                spacing: 5
+                
+                FlatButton:
+                    text: 'Cliente'
+                    canvas.before:
+                        Color:
+                            rgba: (.30,.30,.30,1)
+                        Rectangle:
+                            size: self.size
+                            pos: self.pos
+                FlatButton:
+                    text: 'Numero de Telefono'
+                    canvas.before:
+                        Color:
+                            rgba: (.30,.30,.30,1)
+                        Rectangle:
+                            size: self.size
+                            pos: self.pos
+                FlatButton:
+                    text: 'Correo Electronico'
+                    canvas.before:
+                        Color:
+                            rgba: (.30,.30,.30,1)
+                        Rectangle:
+                            size: self.size
+                            pos: self.pos
+                FlatButton:
+                    text: 'Fecha de Entrega'
+                    canvas.before:
+                        Color:
+                            rgba: (.30,.30,.30,1)
+                        Rectangle:
+                            size: self.size
+                            pos: self.pos
+                FlatButton:
+                    text: 'Vendedor'
+                    canvas.before:
+                        Color:
+                            rgba: (.30,.30,.30,1)
+                        Rectangle:
+                            size: self.size
+                            pos: self.pos
+
+            BoxLayout:
+                size_hint_y: None
+                height: 30
+                spacing: 5
+                TextInput:
+                    id: client_inp
+                    size_hint_x: .2
+                TextInput:
+                    id: phonenumber_inp
+                    size_hint_x: .2
+                TextInput:
+                    id: email_inp
+                    size_hint_x: .2
+                TextInput:
+                    id: date_of_delivery_inp
+                    size_hint_x: .2
+                TextInput:
+                    id: seller_inp
+                    size_hint_x: .2
+
+            BoxLayout:
+                id: products_labels
+                size_hint_y: None
+                size_hint_x: .45
+                height: 40
+                spacing: 5
+                
+                FlatButton:
+                    size_hint_x: .2   
+                    text: 'Producto'
+                    canvas.before:
+                        Color:
+                            rgba: (.30,.30,.30,1)
+                        Rectangle:
+                            size: self.size
+                            pos: self.pos
+                FlatButton:
+                    size_hint_x: .1
+                    text: 'Cantidad'
+                    canvas.before:
+                        Color:
+                            rgba: (.30,.30,.30,1)
+                        Rectangle:
+                            size: self.size
+                            pos: self.pos
+                FlatButton:
+                    size_hint_x: .1
+                    text: 'Precio'
+                    canvas.before:
+                        Color:
+                            rgba: (.30,.30,.30,1)
+                        Rectangle:
+                            size: self.size
+                            pos: self.pos
+
+
+                FlatButton:
+                    text: '+'
+                    size_hint_x: .05
+                    on_release: root.add_more()
+                    canvas.before:
+                        Color:
+                            rgba: (.30,.30,.30,1)
+                        Rectangle:
+                            size: self.size
+                            pos: self.pos
+            BoxLayout:
+                size_hint_x: 1
+                size_hint_y: .15
+                orientation: 'horizontal'
+                ScrollView:
+                    size_hint_y: 1
+                    do_scroll_x: False
+                    do_scroll_y: True
+                    size_hint_x: .2
+                    pos_hint: {'left': 1}
+                    GridLayout:
+                        id: product_inputs
+                        size:(self.width, self.height)
+                        size_hint_x: .9
+                        spacing: 5
+                        size_hint_y: None
+                        cols: 1
+                        height: self.minimum_height
+                        row_default_height: 30
+                        row_force_default: True
+
+                Label:
+                    size_hint_x: .05
+                Button:
+                    text: 'Agregar'
+                    size_hint_y: .6
+                    size_hint_x: .05
+                    on_release: root.add_order()
+                Button:
+                    text: 'Cancelar'
+                    size_hint_y: .6
+                    size_hint_x: .05
+                Label:
+                    size_hint_x: .05
+
+            BoxLayout:
+                id: add_to_cart
+                orientation: 'vertical'
+                BoxLayout:
+                    size_hint_y: None
+                    size_hint_x: 1
+                    height: 30
+                    canvas.before:
+                        Color:
+                            rgba: (.06, .45,.45, 1)
+                        Rectangle:
+                            size: self.size
+                            pos: self.pos
+                    Label:
+                        text: 'id'
+                        size_hint_x: .05
+                    Label:
+                        text: 'Cliente'
+                        size_hint_x: .2
+                    Label:
+                        text: 'Telefono'
+                        size_hint_x: .1
+                    Label:
+                        text: 'Fecha de Registro'
+                        size_hint_x: .2
+                    Label:
+                        text: 'Fecha de Entrega'
+                        size_hint_x: .15
+                    Label:
+                        text: 'Vendedor'
+                        size_hint_x: .2
+                    Label:
+                        text: 'Total'
+                        size_hint_x: .07
+                    Label:
+                        # blank space
+                        size_hint_x: .03
+
+                ScrollView:
+                    size_hint_y: 1
+                    do_scroll_x: False
+                    do_scroll_y: True
+                    size_hint_x: 1
+                    GridLayout:
+                        id: products
+                        size:(self.width, self.height)
+                        size_hint_x: 1
+                        spacing: 5
+                        size_hint_y: None
+                        cols: 1
+                        height: self.minimum_height
+                        row_default_height: 30
+                        row_force_default: True
+
+
+        BoxLayout:
+            id: preview
+            orientation: 'vertical'
+            size_hint_x: .2
+            
+            canvas.before:
+                Color:
+                    rgba: (.06, .45,.45, 1)
+                Rectangle:
+                    size: self.size
+                    pos: self.pos

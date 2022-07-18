@@ -1,0 +1,3 @@
+optimizacion de funciones (tema botones entre pestañas)
+el error de porque no borra esta en que no selecciono el tree correspondiente
+cd

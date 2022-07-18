@@ -1,0 +1,82 @@
+#kivy 2.0.0
+#:import ScrollView kivy.uix.scrollview
+
+WindowManager:
+	ProfileWindow:
+
+
+
+################## PROFILE PAGE ############################
+
+<ProfileWindow>:
+	name: 'Profile'
+
+    canvas.before:
+        Color: 
+        	rgba: .94,1,.9, 1
+        Rectangle:
+        	pos: self.pos
+        	size: self.size
+
+    ScrollView:
+    	size_hint_y: .73
+    	pos_hint: {'x':0, 'y': .11}
+    	do_scroll_x: False
+    	do_scroll_y: True
+
+    	GridLayout:
+    		size:(root.width, root.height)
+    		size_hint_x: None
+    		size_hint_y: None
+    		cols: 1
+    		height: self.minimum_height
+    		row_default_height: 180
+    		row_force_default: True
+
+    		Carousel:
+    			direction: 'right'
+
+    			AsyncImage:
+    				source: '/Users/foxcoding/Desktop/TestApp/Images/cool.jpg'
+
+    			AsyncImage:
+    				source: '/Users/foxcoding/Desktop/TestApp/Images/awesome.jpg'
+
+
+    		Button:
+    			text: 'Hello World'
+    			background_color: (1, 0, 0, 1)
+
+    		Button:
+    			text: 'Hello World'
+    			background_color: (0, 0, 1, 1)
+
+    		Button:
+    			text: 'Hello World'
+    			background_color: (1, 0, 0, 1)
+
+    		Button:
+    			text: 'Hello World'
+    			background_color: (0, 0, 1, 1)
+
+    		Button:
+    			text: 'Hello World'
+    			background_color: (1, 0, 0, 1)
+
+    		Button:
+    			text: 'Hello World'
+    			background_color: (0, 0, 1, 1)
+    		Button:
+    			text: 'Hello World'
+    			background_color: (1, 0, 0, 1)
+
+    		Button:
+    			text: 'Hello World'
+    			background_color: (0, 0, 1, 1)
+    		Button:
+    			text: 'Hello World'
+    			background_color: (1, 0, 0, 1)
+
+    		Button:
+    			text: 'Hello World'
+    			background_color: (0, 0, 1, 1)
